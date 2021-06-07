@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+\begin{document}
+\name{William Dixon}
+\tagline{Senior Site Reliability Engineer}
+%% You can add multiple photos on the left or right
+%%\photoR{2.8cm}{Self_Port}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{will@willd.io}
+  \email{dixonwille@gmail.com}
+  \phone{(843)617-6097}
+  \mailaddress{1934 Horlbeck St. Florence SC, 29505}
+  \linkedin{dixonwille}
+  \github{dixonwille}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.72}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+
+\cvevent{ACS Technologies}{Site Reliability Engineer}{October 2018 -- Present}{}
+The main goal of the SREs is to maintain and improve the reliability of our systems. We had an on call
+schedule so individuals could report an incedent and an SRE would triage and resolve the issue in a
+timely fashion. Tools were created to increase the reliability of our systems by reducing the human
+factor. Major leaps were made with our microservice platform, our pipelines, and the infrastructure
+our services were on. To top it all off, we used Datadog to activly monitor our systems and services.
+
+\cvevent{}{Software Engineer}{September 2015 -- October 2018}{}
+Software Engineer was focused on creating quality features. Using C\#'s NUnit framework and Go's built-in
+testing package, we were able to get some unit and integration tests in place. It was expected that a software
+engineer understood an API request's flow through our software to know when it was best to call SQL or
+create an asyncronous job instead. We had to understand the basics of both frontend and backend as it was
+expected for an engineer to work in both areas, though it was expected one would be stronger in one or the other.
+I was strongest in the backend but did my fair share in the frontend when needed.
+
+\cvsection{Projects}
+
+\cvevent{Kubernetes Migration}{}{}{}
+ACS's infrastructure was built on AWS using AWS stack. In efforts to reduce the complexity of creating our AWS
+version of a container orchestrator, we worked on getting our containers deployed to a Kubernetes cluster instead
+of individual EC2 instances. We couldn't remove any features that existed already (metrics, monitors, etc). We used Helm,
+a few open source Kubernetes Operators, and even wrote our own operator to handle some of the more complex portions
+of our deployments.
+
+\cvevent{Pipelines}{}{}{}
+To increase time to production of a feature, it is key to have a pipeline in place that can put quality gates in place
+so we can be confident in the features being produced. We started off using Jenkins and started moving to Github Actions.
+This pipeline had to be aware of exactly what was changed inside of our monolithic repository as to not build things that
+were not affected by a change. A custom tool for Go was built that would return a list of Go packages that were
+affected with a specific git diff (immediate and dependents). The pipeline was built to build, lint, run unit test, and create
+artifacts that were deployable. A separate pipeline was created that consumed those artifacts that were environment agnostic
+and combine them with configs on deployment of the service.
+
+\cvevent{Monolithic Repository and Microservice Platform}{}{}{}
+We wanted to introduce microservices, but didn't want to introduce the headache of many git repositories to maintain.
+So we decided to create a monolithic repository for our microservices. We also needed to build a microservice platform
+as the existing platforms did not meet the requirements needed by some of our legacy code bases. We wrote a protocol
+buffer transport platform influenced by GRPC but had the flexability to also allowed JSON for our legacy code bases without
+a proxy in front of the service.
+
+\medskip
+
+%\cvsection{A Day of My Life}
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+%\wheelchart{1.5cm}{0.5cm}{%
+%  6/8em/accent!30/{Sleep,\\beautiful sleep},
+%  3/8em/accent!40/Hopeful novelist by night,
+%  8/8em/accent!60/Daytime job,
+%  2/10em/accent/Sports and relaxation,
+%  5/6em/accent!20/Spending time with family
+%}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+%\newpage
+
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Philosophy}
+
+\begin{quote}
+"If you can't explain it\\
+simply, you don't\\
+understand it well enough."
+\end{quote}
+
+-- Albert Einstein
+
+\cvsection{Programming}
+
+\cvskill{Go}{5}
+\cvskill{Rust}{4}
+\cvskill{C\#}{4}
+\cvskill{Bash}{3.5}
+
+\divider \smallskip
+
+\cvtag{HTML}
+\cvtag{CSS}
+\cvtag{Javascript}\\
+\cvtag{Java}
+\cvtag{SQL}
+\cvtag{C}
+
+\cvsection{Technologies}
+
+\cvskill{Docker}{5}
+\cvskill{Pipelines}{4.5}
+\cvskill{Kubernetes}{4}
+\cvskill{AWS}{4}
+
+\divider \smallskip
+
+\cvtag{Data Structures}\\
+\cvtag{Microservice Arch}
+\cvtag{NoSQL}
+\cvtag{Datadog}
+
+\cvsection{Interests}
+
+\cvtag{Embedded Development}\\
+\cvtag{Automation}
+\cvtag{Security}\\
+\cvtag{Reliability}
+
+\cvsection{Office}
+
+\cvtag{Google Suite}
+\cvtag{Jira}\\
+\cvtag{Confluence}
+\cvtag{Slack}
+\cvtag{Scrum}
+\cvtag{Kanban}
+
+\cvsection{Referees}
+
+% \cvref{name}{email}{mailing address}
+\cvref{Joshua Suggs}{ACS Technologies}{josh@acst.com}
+
+\end{paracol}
+
+
+\end{document}
